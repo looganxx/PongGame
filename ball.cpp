@@ -1,15 +1,26 @@
 #include "ball.h"
 #include "fileloader.h"
 
-#define MIDDLE_X 400
-#define MIDDLE_Y 300
 
 Ball::Ball(sf::RenderWindow* p_pMainWindow)
 {
     m_pMainWindow = p_pMainWindow;
     setRadius(25);
-    setPosition(400, 300);
+    setPosition(MIDDLE_X, MIDDLE_Y);
     setTexture(FLoader()->getBallTexture());
+
+    m_xVelocityBall = BALL_VELOCITY;
+    m_yVelocityBall = BALL_VELOCITY;
+}
+
+void Ball::move()
+{
+    CircleShape::move(m_xVelocityBall, m_yVelocityBall);
+}
+
+void Ball::ResetPosition(void)
+{
+    setPosition(MIDDLE_X, MIDDLE_Y);
 }
 
 bool Ball::IsBallOutOfBound()

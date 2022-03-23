@@ -4,9 +4,10 @@
 
 Pad::Pad(sf::RenderWindow* p_pMainWindow, int p_iX, int p_iY)
 {
-    setSize(sf::Vector2f(30, 100));
+    setSize(sf::Vector2f(PAD_SIZE_X, PAD_SIZE_Y));
     setPosition(p_iX, p_iY);
     setTexture(FLoader()->getPadTexture());
+    m_yVelocity = PAD_NULL_VELOCITY;
 }
 
 
